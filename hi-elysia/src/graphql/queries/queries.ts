@@ -1,4 +1,4 @@
-export const queries = /* GraphQL */ `
+export const typeDefs = /* GraphQL */ `
   type Query {
     hi: String
   }
