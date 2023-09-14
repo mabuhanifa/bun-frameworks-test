@@ -9,6 +9,7 @@ export const resolvers = {
       return prisma.user.findMany();
     },
   },
+
   Mutation: {
     async createUser(_: any, args: { data: { name: string; email: string } }) {
       const { name, email } = args.data;
@@ -20,6 +21,15 @@ export const resolvers = {
         },
       });
       return newUser;
+    },
+
+    async removeUser(_: any, args: { id: number }) {
+      const deleted = await prisma.user.delete({
+        where: {
+          id: args.id,
+        },
+      });
+      return deleted;
     },
   },
 };

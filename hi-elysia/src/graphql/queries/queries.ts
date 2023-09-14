@@ -24,5 +24,6 @@ export const typeDefs = /* GraphQL */ `
 
   type Mutation {
     createUser(data: UserInput!): User!
+    removeUser(id: Int!): User
   }
 `;
