@@ -9,8 +9,8 @@ app.get("/search", ({ query }) => {
   return `Hello Elysia ${query.q}`;
 });
 
-app.listen(PORT);
-
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+app.listen(PORT, () => {
+  console.log(
+    `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  );
+});
