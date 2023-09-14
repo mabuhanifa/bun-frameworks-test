@@ -11,9 +11,18 @@ export const typeDefs = /* GraphQL */ `
     email: String
   }
 
+  input UserInput {
+    name: String!
+    email: String!
+  }
+
   type Query {
     hi: String
     games: [Game]
     users: [User]
+  }
+
+  type Mutation {
+    createUser(data: UserInput!): User!
   }
 `;
