@@ -3,6 +3,7 @@
     "esModuleInterop": true,
     "strict": true,
     "jsx": "react-jsx",
+    "jsxFactory": "Fragment",
     "jsxFragmentFactory": "Fragment",
     "jsxImportSource": "hono/jsx"
   }
