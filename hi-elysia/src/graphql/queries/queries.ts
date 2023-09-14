@@ -16,6 +16,12 @@ export const typeDefs = /* GraphQL */ `
     email: String!
   }
 
+  input UpdateUserInput {
+    id: Int!
+    name: String!
+    email: String!
+  }
+
   type Query {
     hi: String
     games: [Game]
@@ -25,5 +31,6 @@ export const typeDefs = /* GraphQL */ `
   type Mutation {
     createUser(data: UserInput!): User!
     removeUser(id: Int!): User
+    updateUser(data: UpdateUserInput!): User!
   }
 `;
