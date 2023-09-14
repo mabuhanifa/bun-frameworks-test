@@ -1,6 +1,8 @@
 import { Elysia, t } from "elysia";
 import { prisma } from "./config/db";
 import { yoga } from "@elysiajs/graphql-yoga";
+import { queries } from "./graphql/queries/queries";
+import { resolvers } from "./graphql/resolvers/resolvers";
 
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -55,16 +57,8 @@ app.get("/user", async () => {
 
 app.use(
   yoga({
-    typeDefs: /* GraphQL */ `
-      type Query {
-        hi: String
-      }
-    `,
-    resolvers: {
-      Query: {
-        hi: () => "Hello from Elysia",
-      },
-    },
+    typeDefs: queries,
+    resolvers: resolvers,
   })
 );
 
