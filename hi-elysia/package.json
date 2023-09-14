@@ -6,8 +6,11 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@elysiajs/graphql-yoga": "^0.6.3",
     "@prisma/client": "5.3.0",
     "elysia": "latest",
+    "graphql": "^16.8.0",
+    "graphql-yoga": "^4.0.4",
     "prisma": "^5.3.0"
   },
   "devDependencies": {

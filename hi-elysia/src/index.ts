@@ -6,8 +6,8 @@ const PORT = Number(process.env.PORT) || 3000;
 
 const app = new Elysia();
 
-app.get("/search", () => {
-  return `Hello from Elysia`;
+app.get("/", () => {
+  return { message: `Hello from Elysia` };
 });
 
 app.post(
