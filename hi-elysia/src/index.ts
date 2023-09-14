@@ -1,7 +1,7 @@
 import { Elysia, t } from "elysia";
 import { prisma } from "./config/db";
 import { yoga } from "@elysiajs/graphql-yoga";
-import { typeDefs } from "./graphql/queries/queries";
+import { typeDefs } from "./graphql/typeDefs/typeDefs";
 import { resolvers } from "./graphql/resolvers/resolvers";
 
 const PORT = Number(process.env.PORT) || 3000;
