@@ -1,7 +1,8 @@
 import { Elysia, t } from "elysia";
 import { prisma } from "./config/db";
+import { log } from "console";
 
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT) || 3000;
 
 const app = new Elysia();
 
@@ -13,16 +14,26 @@ app.post(
   "/user",
   async ({ body }) => {
     try {
-      const { email, name } = body; // Destructure email and name from body
-      const user = await prisma.user.create({
-        data: {
+      const { email, name } = body;
+
+      const isExists = await prisma.user.findUnique({
+        where: {
           email,
-          name,
         },
       });
-      return user;
+      if (isExists?.email) {
+        throw new Error("Email already exists");
+      } else {
+        const user = await prisma.user.create({
+          data: {
+            email,
+            name,
+          },
+        });
+        return user;
+      }
     } catch (error) {
-      return error;
+      throw new Error();
     }
   },
   {
