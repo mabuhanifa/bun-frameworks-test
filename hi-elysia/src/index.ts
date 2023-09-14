@@ -22,7 +22,7 @@ app.post(
         },
       });
       if (isExists?.email) {
-        throw new Error("Email already exists");
+        return new Error("Email already exists");
       } else {
         const user = await prisma.user.create({
           data: {
@@ -32,8 +32,8 @@ app.post(
         });
         return user;
       }
-    } catch (error) {
-      throw new Error();
+    } catch (error: any) {
+      throw new Error(error);
     }
   },
   {
