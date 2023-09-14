@@ -9,11 +9,6 @@ app.get("/search", () => {
   return `Hello from Elysia`;
 });
 
-const userSchema = t.Object({
-  email: t.String(),
-  name: t.String(),
-});
-
 app.post(
   "/user",
   async ({ body }) => {
@@ -27,7 +22,6 @@ app.post(
       });
       return user;
     } catch (error) {
-      console.log(error);
       return error;
     }
   },
@@ -38,6 +32,15 @@ app.post(
     }),
   }
 );
+
+app.get("/user", async () => {
+  try {
+    const users = await prisma.user.findMany();
+    return users;
+  } catch (error) {
+    return error;
+  }
+});
 
 app.listen(PORT, () => {
   console.log(
