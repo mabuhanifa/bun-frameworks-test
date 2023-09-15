@@ -1,13 +1,15 @@
+import { yoga } from "@elysiajs/graphql-yoga";
 import { Elysia, t } from "elysia";
 import { prisma } from "./config/db";
-import { yoga } from "@elysiajs/graphql-yoga";
-import { typeDefs } from "./graphql/typeDefs/typeDefs";
 import { resolvers } from "./graphql/resolvers/resolvers";
+import { typeDefs } from "./graphql/typeDefs/typeDefs";
 
 const PORT = Number(process.env.PORT) || 3000;
 
+//Elysia APP Instance
 const app = new Elysia();
 
+//Hello mesaage
 app.get("/", () => {
   return { message: `Hello from Elysia` };
 });
