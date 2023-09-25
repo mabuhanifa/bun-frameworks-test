@@ -61,6 +61,7 @@ app.use(
   yoga({
     typeDefs,
     resolvers,
+    context: { someNumber: 13 },
   })
 );
 
