@@ -5,7 +5,6 @@
     "@esbuild-kit/core-utils": "^3.3.2",
     "@esbuild-kit/esm-loader": "^2.6.5",
     "@libsql/client": "^0.15.12",
-    "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
     "hono": "^4.9.4",
     "node-domexception": "^2.0.2"
@@ -13,11 +12,15 @@
   "devDependencies": {
     "@types/node": "^20.11.17",
     "drizzle-kit": "^0.31.4",
+    "dotenv": "^16.4.5",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b"
 }
